@@ -1,13 +1,13 @@
 import {Component} from "@angular/core";
 import {ApiService} from "./api.service";
-import {Question} from "./data.service";
+
 @Component({
     selector:"question",
     templateUrl:"./question.component.html",
 })
 export class QuestionComponent{
-    // question={} as Question;
-    question=<Question>{};
+    // question={} as Question; or question=<Question>{};
+    question:any={};
     
     constructor (private api:ApiService){
         //constructor
@@ -19,6 +19,6 @@ export class QuestionComponent{
         this.api.postQuestion(question);
     }
     clear(){
-        this.question=<Question>{};
+        this.question={};
     }
 }
