@@ -8,6 +8,9 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { QuestionComponent } from './question.component';
+import {QuizComponent } from './quiz.component';
+import {QuizzesComponent } from './quizzes.component';
+
 import { QuestionsComponent } from './questions.component';
 import { HomeComponent } from './home.component';
 import { NavComponent } from './nav.component';
@@ -26,7 +29,9 @@ import { ApiService } from './api.service';
 const routes = [
   { path: '', component: HomeComponent },
   { path: 'question', component: QuestionComponent },
+  { path: 'question/:quizId', component: QuestionComponent },
   { path: 'questions', component: QuestionsComponent },
+  { path: 'quiz', component: QuizComponent },
 ];
 
 @NgModule({
@@ -34,6 +39,8 @@ const routes = [
     AppComponent,
     QuestionComponent,
     QuestionsComponent,
+    QuizComponent,
+    QuizzesComponent,
     HomeComponent,
     NavComponent,
   ],

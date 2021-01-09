@@ -4,12 +4,12 @@ import { Component } from '@angular/core';
   selector: 'nav',
   template: `
     <mat-toolbar>
-    <button routerLink="/">Home</button>
-    <button routerLink="/question">Question</button>
+      <button routerLink="/">Home</button>
+      <button routerLink="/question">Question</button>
       <button routerLink="/questions">Question List</button>
-      </mat-toolbar>
+      <button routerLink="/quiz">New Quiz</button>
+    </mat-toolbar>
   `,
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
-export class NavComponent {
-}
+export class NavComponent {}

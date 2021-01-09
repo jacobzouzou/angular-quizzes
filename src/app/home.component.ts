@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 
 @Component({
   template: `
-    <question></question>
-    <questions></questions>
+    <quiz></quiz>
+    <quizzes></quizzes>
   `,
   styleUrls: ['./app.component.css']
 })
