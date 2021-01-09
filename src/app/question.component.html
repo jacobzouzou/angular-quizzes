@@ -55,9 +55,9 @@
     </form>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-button (click)="null" *ngIf="question.id">SAVE</button>
-    <button mat-button (click)="question={}" *ngIf="question.id">NEW</button>
+    <button mat-button (click)="putQuestion(question)" *ngIf="question.id">SAVE</button>
+    <button mat-button (click)="Clear()" *ngIf="question.id">NEW</button>
 
-    <button mat-button (click)="post(question)" *ngIf="!question.id">ADD</button>
+    <button mat-button (click)="postQuestion(question)" *ngIf="!question.id">ADD</button>
   </mat-card-actions>
 </mat-card>

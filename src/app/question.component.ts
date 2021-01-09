@@ -1,13 +1,13 @@
 import {Component} from "@angular/core";
 import {ApiService} from "./api.service";
-
+import {Question} from "./data.service";
 @Component({
     selector:"question",
     templateUrl:"./question.component.html",
 })
 export class QuestionComponent{
-    // question={} as Question; or question=<Question>{};
-    question:any={};
+    question={} as Question; // or question=<Question>{};
+    // question:any={};
     
     constructor (private api:ApiService){
         //constructor
@@ -15,10 +15,13 @@ export class QuestionComponent{
     ngOnInit(){
         this.api.questionSelected.subscribe(question=>this.question=question);
     }
-    public post(question:any){
+    postQuestion(question:any){
         this.api.postQuestion(question);
     }
-    clear(){
-        this.question={};
+    putQuestion(question:any){
+        this.api.putQuestion(question);
+    }
+    Clear(){
+        this.question={} as Question;
     }
 }

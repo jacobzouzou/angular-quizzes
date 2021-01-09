@@ -21,8 +21,15 @@ export class ApiService {
         console.log(res);
       });
   }
-
+  putQuestion(question: any) {
+    this.httpClient
+      .put(`http://localhost:5000/api/questions/${question.id}`, question)
+      .subscribe((res) => {
+        console.log(res);
+      });
+  }
   selectQuestion(question:any){
+    //Subject notify observer with pasted value
     this.selectedQuestion.next(question);
   }
 }

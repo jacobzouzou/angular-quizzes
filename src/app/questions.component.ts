@@ -7,6 +7,7 @@ import { ApiService } from './api.service';
 })
 export class QuestionsComponent {
   api: ApiService;
+  question = {};
   questions: any;
   constructor(private apiService: ApiService) {
     //constructor
