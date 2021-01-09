@@ -16,7 +16,4 @@ export class QuestionsComponent {
   ngOnInit() {
     this.api.getQuestions().subscribe((res) => (this.questions = res));
   }
-  // public post(question: any) {
-  //   this.api.postQuestion(question);
-  // }
 }
