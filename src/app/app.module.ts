@@ -10,12 +10,13 @@ import { AppComponent } from './app.component';
 import { QuestionComponent } from './question.component';
 import {QuizComponent } from './quiz.component';
 import {QuizzesComponent } from './quizzes.component';
-
 import { QuestionsComponent } from './questions.component';
 import { HomeComponent } from './home.component';
+import {RegisterComponent } from './register.component';
+
 import { NavComponent } from './nav.component';
 
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatInputModule } from '@angular/material/input';
@@ -24,14 +25,15 @@ import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 
 import { HttpClientModule } from '@angular/common/http';
-import { ApiService } from './api.service';
+import { ApiService } from './services/api.service';
+import { AuthService } from './services/auth.service';
 
 const routes = [
   { path: '', component: HomeComponent },
   { path: 'question', component: QuestionComponent },
   { path: 'question/:quizId', component: QuestionComponent },
-  { path: 'questions', component: QuestionsComponent },
   { path: 'quiz', component: QuizComponent },
+  { path: 'register', component: RegisterComponent },
 ];
 
 @NgModule({
@@ -43,6 +45,7 @@ const routes = [
     QuizzesComponent,
     HomeComponent,
     NavComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -51,13 +54,14 @@ const routes = [
     HttpClientModule,
     RouterModule.forRoot(routes),
     FormsModule,
+    ReactiveFormsModule,
     MatToolbarModule,
     MatButtonModule,
     MatInputModule,
     MatCardModule,
     MatListModule,
   ],
-  providers: [ApiService],
+  providers: [ApiService,AuthService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -4,10 +4,9 @@ import { Component } from '@angular/core';
   selector: 'nav',
   template: `
     <mat-toolbar>
-      <button routerLink="/">Home</button>
-      <button routerLink="/question">Question</button>
-      <button routerLink="/questions">Question List</button>
-      <button routerLink="/quiz">New Quiz</button>
+      <button routerLink="/">Quiz</button>
+      <span style="flex: 1 1 auto"></span>
+      <button routerLink="/register">Register</button>
     </mat-toolbar>
   `,
   styleUrls: ['./app.component.css'],
