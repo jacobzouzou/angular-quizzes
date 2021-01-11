@@ -9,6 +9,9 @@ export class AuthService {
     constructor(private http:HttpClient, private router:Router){
 
     }
+    get isAuthenticated(){
+        return !!localStorage.getItem('token');
+    }
     register(credentials: any){
         this.http.post<any>("http://localhost:5000/api/account", credentials).subscribe(
             res =>{
@@ -24,6 +27,9 @@ export class AuthService {
             },
             error=>console.error(error)            
         );
+    }
+    logout(){
+        localStorage.removeItem("token");
     }
     private authenticate(res:any){
         localStorage.setItem("token",res);

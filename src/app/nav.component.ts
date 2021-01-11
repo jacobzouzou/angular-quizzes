@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {AuthService} from "./services/auth.service"
 
 @Component({
   selector: 'nav',
@@ -6,10 +7,22 @@ import { Component } from '@angular/core';
     <mat-toolbar>
       <button routerLink="/">Quiz</button>
       <span style="flex: 1 1 auto"></span>
-      <button routerLink="/register">Register</button>
-      <button routerLink="/login">Login</button>
+      <button   *ngIf="!isAuthenticated" routerLink="/register">Register</button>
+      <button  *ngIf="!isAuthenticated" routerLink="/login">Login</button>
+      <button *ngIf="isAuthenticated" (click)="logout()">Logout</button>
     </mat-toolbar>
   `,
   styleUrls: ['./app.component.css'],
 })
-export class NavComponent {}
+export class NavComponent {
+
+  constructor(private auth:AuthService){
+
+  }
+  get isAuthenticated(){
+    return this.auth.isAuthenticated;
+  }
+  logout(){
+    this.auth.logout();
+  }
+}

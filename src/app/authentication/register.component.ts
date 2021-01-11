@@ -18,6 +18,7 @@ export class RegisterComponent{
 
     register(){
         this.auth.register(this.form.value);
+        this.router.navigate(['/login']);
     }
     cancel(){
         this.router.navigate(['/']);
