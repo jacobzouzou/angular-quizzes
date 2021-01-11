@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
       <button routerLink="/">Quiz</button>
       <span style="flex: 1 1 auto"></span>
       <button routerLink="/register">Register</button>
+      <button routerLink="/login">Login</button>
     </mat-toolbar>
   `,
   styleUrls: ['./app.component.css'],

@@ -1,15 +1,32 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
-@Injectable()
+@Injectable({
+    providedIn:"root"
+})
 export class AuthService {
-    constructor(private http:HttpClient){
+    constructor(private http:HttpClient, private router:Router){
 
     }
-    register(credantials: any){
-        this.http.post<any>("http://localhost:5000/api/account", credantials).subscribe(
+    register(credentials: any){
+        this.http.post<any>("http://localhost:5000/api/account", credentials).subscribe(
             res =>{
-                localStorage.setItem("token",res);
-        });
+                this.authenticate(res);
+            },
+            error=>console.error(error)            
+        );
+    }
+    login(credentials: any){
+        this.http.post<any>("http://localhost:5000/api/account/login", credentials).subscribe(
+            res =>{
+               this.authenticate(res);
+            },
+            error=>console.error(error)            
+        );
+    }
+    private authenticate(res:any){
+        localStorage.setItem("token",res);
+        this.router.navigate(['/']);
     }
 }

@@ -3,7 +3,9 @@ import { HttpClient } from '@angular/common/http';
 //library for observable pattern: subject , observer
 import { Subject } from 'rxjs';
 
-@Injectable()
+@Injectable({
+  providedIn:"root"
+})
 export class ApiService {
   private selectedQuestion = new Subject<any>();
   questionSelected= this.selectedQuestion.asObservable();

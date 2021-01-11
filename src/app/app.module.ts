@@ -8,11 +8,12 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { QuestionComponent } from './question.component';
-import {QuizComponent } from './quiz.component';
-import {QuizzesComponent } from './quizzes.component';
+import { QuizComponent } from './quiz.component';
+import { QuizzesComponent } from './quizzes.component';
 import { QuestionsComponent } from './questions.component';
 import { HomeComponent } from './home.component';
-import {RegisterComponent } from './register.component';
+import { RegisterComponent } from './authentication/register.component';
+import { LoginComponent } from './authentication/login.component';
 
 import { NavComponent } from './nav.component';
 
@@ -24,9 +25,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 
-import { HttpClientModule } from '@angular/common/http';
-import { ApiService } from './services/api.service';
-import { AuthService } from './services/auth.service';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+// import { ApiService } from './services/api.service';
+// import { AuthService } from './services/auth.service';
+import { AuthInterceptor } from './authentication/auth.interceptor';
 
 const routes = [
   { path: '', component: HomeComponent },
@@ -34,6 +36,7 @@ const routes = [
   { path: 'question/:quizId', component: QuestionComponent },
   { path: 'quiz', component: QuizComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'login', component: LoginComponent },
 ];
 
 @NgModule({
@@ -45,7 +48,8 @@ const routes = [
     QuizzesComponent,
     HomeComponent,
     NavComponent,
-    RegisterComponent
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +65,11 @@ const routes = [
     MatCardModule,
     MatListModule,
   ],
-  providers: [ApiService,AuthService],
+  providers: [{
+    provide:HTTP_INTERCEPTORS,
+    useClass:AuthInterceptor,
+    multi:true
+  }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
