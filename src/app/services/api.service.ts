@@ -42,6 +42,9 @@ export class ApiService {
   getQuizzes() {
     return this.httpClient.get('http://localhost:5000/api/quizzes');
   }
+  getAllQuizzes() {
+    return this.httpClient.get('http://localhost:5000/api/quizzes/all');
+  }
   postQuiz(quiz: any) {
     this.httpClient
       .post('http://localhost:5000/api/quizzes', quiz)

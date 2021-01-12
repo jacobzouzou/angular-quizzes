@@ -12,9 +12,8 @@ export class QuestionComponent{
     question:any={};
     quizId:any=null;
     
-    constructor (private api:ApiService, private route:ActivatedRoute){
-        //constructor
-    }
+    constructor (private api:ApiService, private route:ActivatedRoute){}
+    
     ngOnInit(){
         this.quizId= this.route.snapshot.paramMap.get("quizId");
         this.api.questionSelected.subscribe(question=>this.question=question);

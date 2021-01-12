@@ -9,6 +9,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { QuestionComponent } from './question.component';
 import { QuizComponent } from './quiz.component';
+import { PlayComponent } from './play.component';
+import { PlayQuizComponent } from './playQuiz.component';
 import { QuizzesComponent } from './quizzes.component';
 import { QuestionsComponent } from './questions.component';
 import { HomeComponent } from './home.component';
@@ -24,10 +26,10 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatRadioModule} from '@angular/material/radio';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-// import { ApiService } from './services/api.service';
-// import { AuthService } from './services/auth.service';
 import { AuthInterceptor } from './authentication/auth.interceptor';
 
 const routes = [
@@ -35,6 +37,8 @@ const routes = [
   { path: 'question', component: QuestionComponent },
   { path: 'question/:quizId', component: QuestionComponent },
   { path: 'quiz', component: QuizComponent },
+  { path: 'play', component: PlayComponent },
+  { path: 'playQuiz/:quizId', component: PlayQuizComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
 ];
@@ -45,6 +49,8 @@ const routes = [
     QuestionComponent,
     QuestionsComponent,
     QuizComponent,
+    PlayComponent,
+    PlayQuizComponent,
     QuizzesComponent,
     HomeComponent,
     NavComponent,
@@ -64,6 +70,8 @@ const routes = [
     MatInputModule,
     MatCardModule,
     MatListModule,
+    MatExpansionModule,
+    MatRadioModule
   ],
   providers: [{
     provide:HTTP_INTERCEPTORS,
