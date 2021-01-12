@@ -62,7 +62,6 @@ export class PlayQuizComponent {
       console.log(`Dialog result: ${result}`);
     });
   }
-
 }
 
 function shuffle(a:any) {
