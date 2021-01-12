@@ -6,6 +6,7 @@ import {AuthService} from "./services/auth.service"
   template: `
     <mat-toolbar>
       <button routerLink="/">Quiz</button>
+      <button routerLink="/play">Play Quiz</button>
       <span style="flex: 1 1 auto"></span>
       <button   *ngIf="!isAuthenticated" routerLink="/register">Register</button>
       <button  *ngIf="!isAuthenticated" routerLink="/login">Login</button>
