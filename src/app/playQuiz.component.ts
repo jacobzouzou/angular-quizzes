@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { ApiService } from './services/api.service';
 import { ActivatedRoute } from '@angular/router';
+import {MatDialog} from '@angular/material/dialog';
+import {FinishedComponent} from "./finished.component"
 
 @Component({
   templateUrl: './playQuiz.component.html',  
@@ -10,7 +12,7 @@ export class PlayQuizComponent {
   quizzes: any = {};
   questions: any = {};
   quizId:any=null;
-  constructor(private api: ApiService, private route: ActivatedRoute) {}
+  constructor(private api: ApiService, private route: ActivatedRoute, private dialog:MatDialog) {}
 
   ngOnInit() {
     this.quizId = this.route.snapshot.paramMap.get('quizId');
@@ -36,8 +38,31 @@ export class PlayQuizComponent {
     this.step--;
   }
   finish(){
-    
+    var correct=0;
+    this.questions.forEach((q:any) =>{
+      if(q.correctAnswer===q.selectedAnswer){
+        correct++;
+      }
+    });
+    const dialogRef = this.dialog.open(FinishedComponent,{
+      data:{
+        correct,
+        total:this.questions.length
+      }
+    });
+
+    console.log(correct);
   }
+  openDialog() {
+    const dialogRef = this.dialog.open(FinishedComponent,{
+      data:{ }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+
 }
 
 function shuffle(a:any) {

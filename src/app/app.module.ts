@@ -18,6 +18,7 @@ import { RegisterComponent } from './authentication/register.component';
 import { LoginComponent } from './authentication/login.component';
 
 import { NavComponent } from './nav.component';
+import { FinishedComponent } from './finished.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -28,6 +29,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatRadioModule} from '@angular/material/radio';
+import {MatDialogModule} from '@angular/material/dialog';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './authentication/auth.interceptor';
@@ -55,7 +57,8 @@ const routes = [
     HomeComponent,
     NavComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    FinishedComponent
   ],
   imports: [
     BrowserModule,
@@ -71,7 +74,8 @@ const routes = [
     MatCardModule,
     MatListModule,
     MatExpansionModule,
-    MatRadioModule
+    MatRadioModule,
+    MatDialogModule
   ],
   providers: [{
     provide:HTTP_INTERCEPTORS,
@@ -79,5 +83,6 @@ const routes = [
     multi:true
   }],
   bootstrap: [AppComponent],
+  entryComponents:[FinishedComponent]
 })
 export class AppModule {}
