@@ -9,8 +9,8 @@ export class LoginComponent{
     form;
     constructor (private auth:AuthService, private fb:FormBuilder){
         this.form=fb.group({
-            email:['jacob@isi.com',Validators.required],
-            password:['!Nanok$1',Validators.required]
+            email:['',Validators.required],
+            password:['',Validators.required]
         });
     }
 

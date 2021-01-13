@@ -11,8 +11,8 @@ export class RegisterComponent{
     form;
     constructor (private auth:AuthService, private fb:FormBuilder, private router:Router){
         this.form=fb.group({
-            email:['jacob@isi.com',Validators.required],
-            password:['!Nanok$1',Validators.required]
+            email:['',Validators.required],
+            password:['',Validators.required]
         });
     }
 
