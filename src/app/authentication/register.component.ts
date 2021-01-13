@@ -9,16 +9,15 @@ import {AuthService} from "../services/auth.service";
 })
 export class RegisterComponent{
     form;
-    constructor (private auth:AuthService, private fb:FormBuilder, private router:Router){
+    constructor (public auth:AuthService, private fb:FormBuilder, private router:Router){
         this.form=fb.group({
-            email:['',Validators.required],
-            password:['',Validators.required]
+            email:['jacob@isi.com',Validators.required],
+            password:['!Nanok$1',Validators.required]
         });
     }
 
     register(){
         this.auth.register(this.form.value);
-        this.router.navigate(['/login']);
     }
     cancel(){
         this.router.navigate(['/']);

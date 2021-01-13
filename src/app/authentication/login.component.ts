@@ -8,15 +8,14 @@ import {Router} from "@angular/router"
 })
 export class LoginComponent{
     form;
-    constructor (private auth:AuthService, private formBuilder:FormBuilder, private router:Router){
+    constructor (public auth:AuthService, private formBuilder:FormBuilder, private router:Router){
         this.form=formBuilder.group({
-            email:['',Validators.required],
-            password:['',Validators.required]
+            email:['jacob@isi.com',Validators.required],
+            password:['!Nanok$1',Validators.required]
         });
     }
 
     login(){
         this.auth.login(this.form.value);
-        this.router.navigate(['']);
     }
 }

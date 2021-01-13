@@ -3,6 +3,7 @@
       <mat-card-title>Login</mat-card-title>
     </mat-card-header>
     <mat-card-content>
+      <h3 *ngIf="this.auth.isLoginError" style="color:red">Verify your login or password</h3>
       <form [formGroup]="form" (ngSubmit)="login()">
         <mat-form-field>
           <input

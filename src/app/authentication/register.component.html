@@ -3,6 +3,7 @@
     <mat-card-title>Register</mat-card-title>
   </mat-card-header>
   <mat-card-content>
+    <h3 *ngIf="this.auth.isRegisterError" style="color:red">Verify your data</h3>
     <form [formGroup]="form" (ngSubmit)="register()">
       <mat-form-field>
         <input

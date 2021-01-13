@@ -32,7 +32,7 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatDialogModule} from '@angular/material/dialog';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { AuthInterceptor } from './services/auth.interceptor';
+import { AuthInterceptor } from './authentication/auth.interceptor';
 
 const routes = [
   { path: '', component: HomeComponent },
