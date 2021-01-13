@@ -1,17 +1,13 @@
 import {Component} from "@angular/core";
-import {ApiService} from "./services/api.service";
+import {ApiService} from "../../services/api.service";
 
 @Component({
     selector:"quiz",
     templateUrl:"./quiz.component.html",
 })
 export class QuizComponent{
-    api:ApiService;
     quiz:any={}
-    constructor (private apiService:ApiService){
-        //constructor
-        this.api=apiService;
-    }
+    constructor (public api:ApiService){}
     ngOnInit(){
         this.api.quizSelected.subscribe(quiz=>this.quiz=quiz);
     }

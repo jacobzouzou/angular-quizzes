@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { ApiService } from './services/api.service';
+import { ApiService } from '../../services/api.service';
+import {Router} from "@angular/router"
 
 @Component({
   selector: 'quizzes',
@@ -10,7 +11,7 @@ export class QuizzesComponent {
   quiz = {};
   quizzes: any;
 
-  constructor(private apiService: ApiService) {
+  constructor(private apiService: ApiService, private router:Router) {
     //constructor
     this.api = apiService;
   }

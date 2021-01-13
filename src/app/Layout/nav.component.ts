@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {AuthService} from "./services/auth.service"
+import {AuthService} from "../services/auth.service"
 
 @Component({
   selector: 'nav',
@@ -13,7 +13,7 @@ import {AuthService} from "./services/auth.service"
       <button *ngIf="isAuthenticated" (click)="logout()">Logout</button>
     </mat-toolbar>
   `,
-  styleUrls: ['./app.component.css'],
+  styleUrls: ['../app.component.css'],
 })
 export class NavComponent {
 

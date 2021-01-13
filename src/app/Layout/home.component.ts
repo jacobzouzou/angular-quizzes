@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
     <quiz></quiz>
     <quizzes></quizzes>
   `,
-  styleUrls: ['./app.component.css']
+  styleUrls: ['../app.component.css']
 })
 export class HomeComponent {
 }

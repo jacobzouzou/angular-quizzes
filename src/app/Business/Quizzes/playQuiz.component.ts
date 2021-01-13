@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { ApiService } from './services/api.service';
+import { ApiService } from '../../services/api.service';
 import { ActivatedRoute } from '@angular/router';
 import {MatDialog} from '@angular/material/dialog';
-import {FinishedComponent} from "./finished.component"
+import {FinishedComponent} from "../finished.component"
 
 @Component({
   templateUrl: './playQuiz.component.html',  

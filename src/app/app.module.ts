@@ -7,18 +7,18 @@ import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { QuestionComponent } from './question.component';
-import { QuizComponent } from './quiz.component';
-import { PlayComponent } from './play.component';
-import { PlayQuizComponent } from './playQuiz.component';
-import { QuizzesComponent } from './quizzes.component';
-import { QuestionsComponent } from './questions.component';
-import { HomeComponent } from './home.component';
+import { QuestionComponent } from './Business/Questions/question.component';
+import { QuizComponent } from './Business/Quizzes/quiz.component';
+import { PlayComponent } from './Business/play.component';
+import { PlayQuizComponent } from './Business/Quizzes/playQuiz.component';
+import { QuizzesComponent } from './Business/Quizzes/quizzes.component';
+import { QuestionsComponent } from './Business/Questions/questions.component';
+import { HomeComponent } from './Layout/home.component';
 import { RegisterComponent } from './authentication/register.component';
 import { LoginComponent } from './authentication/login.component';
 
-import { NavComponent } from './nav.component';
-import { FinishedComponent } from './finished.component';
+import { NavComponent } from './Layout/nav.component';
+import { FinishedComponent } from './Business/finished.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
