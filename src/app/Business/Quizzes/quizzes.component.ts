@@ -7,18 +7,15 @@ import {Router} from "@angular/router"
   templateUrl: './quizzes.component.html',
 })
 export class QuizzesComponent {
-  api: ApiService;
   quiz = {};
   quizzes: any;
 
-  constructor(private apiService: ApiService, private router:Router) {
-    //constructor
-    this.api = apiService;
-  }
+  constructor(public api: ApiService, private router:Router) { }
   ngOnInit() {
     this.api.getQuizzes().subscribe((res) => (this.quizzes = res));
   }
-//   public post(quiz: any) {
-//     this.api.postQuiz(quiz);
-//   }
+  public post(quiz: any) {
+    this.api.postQuiz(quiz);
+    this.router.navigate([""]);
+  }
 }

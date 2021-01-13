@@ -6,16 +6,16 @@ import { Router } from '@angular/router';
     providedIn:"root"
 })
 export class AuthService {
-    constructor(private http:HttpClient, private router:Router){
+    private authenticated:boolean=false;
+    constructor(private http:HttpClient, private router:Router){ }
 
-    }
     get isAuthenticated(){
-        return !!localStorage.getItem('token');
+        return this.authenticated;
     }
     register(credentials: any){
         this.http.post<any>("http://localhost:5000/api/account", credentials).subscribe(
             res =>{
-                this.authenticate(res);
+                localStorage.setItem("token",res);
             },
             error=>console.error(error)            
         );
@@ -23,16 +23,13 @@ export class AuthService {
     login(credentials: any){
         this.http.post<any>("http://localhost:5000/api/account/login", credentials).subscribe(
             res =>{
-               this.authenticate(res);
+                localStorage.setItem("token",res);
+                this.authenticated=true;
             },
             error=>console.error(error)            
         );
     }
     logout(){
         localStorage.removeItem("token");
-    }
-    private authenticate(res:any){
-        localStorage.setItem("token",res);
-        this.router.navigate(['/']);
     }
 }
