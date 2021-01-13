@@ -22,7 +22,8 @@ import { FinishedComponent } from './Business/finished.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { MatToolbarModule } from '@angular/material/toolbar';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatMenuModule} from '@angular/material/menu';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -68,14 +69,15 @@ const routes = [
     RouterModule.forRoot(routes),
     FormsModule,
     ReactiveFormsModule,
-    MatToolbarModule,
+    MatMenuModule,
     MatButtonModule,
     MatInputModule,
     MatCardModule,
     MatListModule,
     MatExpansionModule,
     MatRadioModule,
-    MatDialogModule
+    MatDialogModule,
+    MatToolbarModule
   ],
   providers: [{
     provide:HTTP_INTERCEPTORS,

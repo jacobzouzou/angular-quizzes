@@ -1,13 +1,12 @@
 import {Component} from "@angular/core";
-import {FormBuilder,Validators} from "@angular/forms";
+import {FormBuilder,Validators} from "@angular/forms"
+import {AuthService} from "../services/auth.service";
 import {Router} from "@angular/router"
 
-import {AuthService} from "../services/auth.service";
-
 @Component({
-    templateUrl:"./register.component.html",
+    templateUrl:"./login.component.html",
 })
-export class RegisterComponent{
+export class LoginComponent{
     form;
     constructor (public auth:AuthService, private formBuilder:FormBuilder, private router:Router){
         this.form=formBuilder.group({
@@ -16,10 +15,7 @@ export class RegisterComponent{
         });
     }
 
-    register(){
-        this.auth.register(this.form.value);
-    }
-    cancel(){
-        this.router.navigate(['']);
+    login(){
+        this.auth.login(this.form.value);
     }
 }
