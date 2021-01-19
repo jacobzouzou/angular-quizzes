@@ -4,37 +4,31 @@ import { HttpClient } from '@angular/common/http';
 import { Subject } from 'rxjs';
 
 @Injectable({
-  providedIn:"root"
+  providedIn: 'root',
 })
 export class ApiService {
   private selectedQuestion = new Subject<any>();
-  questionSelected= this.selectedQuestion.asObservable();
+  questionSelected = this.selectedQuestion.asObservable();
 
   private selectedQuiz = new Subject<any>();
-  quizSelected= this.selectedQuiz.asObservable();
+  quizSelected = this.selectedQuiz.asObservable();
 
   constructor(private httpClient: HttpClient) {
     //constructor
   }
   /* QUESTIONS*/
-  getQuestions(quizId:number) {
+  getQuestions(quizId: number) {
     return this.httpClient.get(`http://localhost:5000/api/questions/${quizId}`);
   }
   postQuestion(question: any) {
-    this.httpClient
-      .post('http://localhost:5000/api/questions', question)
-      .subscribe((res) => {
-        console.log(res);
-      });
+    return this.httpClient
+      .post('http://localhost:5000/api/questions', question);
   }
   putQuestion(question: any) {
-    this.httpClient
-      .put(`http://localhost:5000/api/questions/${question.id}`, question)
-      .subscribe((res) => {
-        console.log(res);
-      });
+     return this.httpClient
+      .put(`http://localhost:5000/api/questions/${question.id}`, question);
   }
-  selectQuestion(question:any){
+  selectQuestion(question: any) {
     //Subject notify observer with pasted value
     this.selectedQuestion.next(question);
   }
@@ -46,20 +40,15 @@ export class ApiService {
     return this.httpClient.get('http://localhost:5000/api/quizzes/all');
   }
   postQuiz(quiz: any) {
-    this.httpClient
-      .post('http://localhost:5000/api/quizzes', quiz)
-      .subscribe((res) => {
-        console.log(res);
-      });
+    return this.httpClient.post('http://localhost:5000/api/quizzes', quiz);
   }
   putQuiz(quiz: any) {
-    this.httpClient
-      .put(`http://localhost:5000/api/quizzes/${quiz.id}`, quiz)
-      .subscribe((res) => {
-        console.log(res);
-      });
+    return this.httpClient.put(
+      `http://localhost:5000/api/quizzes/${quiz.id}`,
+      quiz
+    );
   }
-  selectQuiz(quiz:any){
+  selectQuiz(quiz: any) {
     //Subject notify observer with pasted value
     this.selectedQuiz.next(quiz);
   }

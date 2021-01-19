@@ -19,12 +19,16 @@ export class QuestionComponent{
         this.api.questionSelected.subscribe(question=>this.question=question);
     }
     postQuestion(question:any){
-        question.quizId= Number.parseFloat(this.quizId?this.quizId:0);
         question.Id=0;
-        this.api.postQuestion(question);
+        question.quizId= Number.parseFloat(this.quizId?this.quizId:0);
+        this.api.postQuestion(question).subscribe((res)=>{
+            window.location.reload();
+        });
     }
     putQuestion(question:any){
-        this.api.putQuestion(question);
+        this.api.putQuestion(question).subscribe((res)=>{
+            window.location.reload();
+        });
     }
     Clear(){
         // this.question={} as Question;

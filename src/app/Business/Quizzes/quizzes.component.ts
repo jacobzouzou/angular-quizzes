@@ -15,7 +15,6 @@ export class QuizzesComponent {
     this.api.getQuizzes().subscribe((res) => (this.quizzes = res));
   }
   public post(quiz: any) {
-    this.api.postQuiz(quiz);
-    this.router.navigate([""]);
+    this.api.selectQuiz(quiz);
   }
 }
