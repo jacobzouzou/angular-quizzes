@@ -35,17 +35,6 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './authentication/auth.interceptor';
 
-const routes = [
-  { path: '', component: HomeComponent },
-  { path: 'question', component: QuestionComponent },
-  { path: 'question/:quizId', component: QuestionComponent },
-  { path: 'quiz', component: QuizComponent },
-  { path: 'play', component: PlayComponent },
-  { path: 'playQuiz/:quizId', component: PlayQuizComponent },
-  { path: 'register', component: RegisterComponent },
-  { path: 'login', component: LoginComponent },
-];
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -66,7 +55,6 @@ const routes = [
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    RouterModule.forRoot(routes),
     FormsModule,
     ReactiveFormsModule,
     MatMenuModule,
