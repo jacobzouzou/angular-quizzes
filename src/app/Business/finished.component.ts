@@ -4,11 +4,12 @@ import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 @Component({
     template: `
     <h1>Your Score</h1> 
-    <h2>{{data.correct}}/{{data.total}}</h2>
+    <h2>{{score.correct}}/{{score.total}}</h2>
   `
 })
 export class FinishedComponent {
-    constructor(@Inject (MAT_DIALOG_DATA) public data:any) {
-
+    score:any;
+    constructor(@Inject (MAT_DIALOG_DATA) private data:any) {
+      this.score=data;
     }
 }
