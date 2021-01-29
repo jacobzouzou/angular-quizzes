@@ -12,8 +12,8 @@ import { HomeComponent } from './Layout/home.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'question', component: QuestionComponent },
-  // { path: 'question/:quizId', component: QuestionComponent },
-  { path: 'quizzes/:quizId', component: QuestionComponent },
+  // { path: 'quizzes/:quizId', component: QuestionComponent },
+  { path: 'quizzes/:quizId/questions', component: QuestionComponent },
   { path: 'quiz', component: QuizComponent },
   { path: 'play', component: PlayComponent },
   { path: 'playQuiz/:quizId', component: PlayQuizComponent },

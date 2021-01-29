@@ -18,7 +18,10 @@ export class ApiService {
   }
   /* QUESTIONS*/
   getQuestions(quizId: number) {
-    return this.httpClient.get(`http://localhost:5000/api/quizzes/${quizId}`);
+    return this.httpClient.get(`http://localhost:5000/api/quizzes/${quizId}/questions`);
+  }
+  getQuestion(quizId: number, questionId:number) {
+    return this.httpClient.get(`http://localhost:5000/api/quizzes/${quizId}/questions/${questionId}`);
   }
   postQuestion(question: any) {
     return this.httpClient
