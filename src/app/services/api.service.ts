@@ -35,7 +35,7 @@ export class ApiService {
   selectQuestion(question: any) {
     //Subject notify observer with pasted value
     this.selectedQuestion.next(question);
-    this.router.navigate(['quizzes',question.quizId, 'questions',question.id]);
+    // this.router.navigate(['quizzes',question.quizId, 'questions',question.id]);
   }
   /* QUIZZES*/
   getQuizzes() {
