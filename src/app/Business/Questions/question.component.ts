@@ -1,6 +1,6 @@
 import {Component} from "@angular/core";
 import {ApiService} from "../../services/api.service";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 // import {Question} from "./data.service";
 
 @Component({
@@ -12,11 +12,18 @@ export class QuestionComponent{
     question:any={};
     quizId:any=null;
     
-    constructor (private api:ApiService, private route:ActivatedRoute){}
+    constructor (private api:ApiService, private router:Router, private route:ActivatedRoute){}
     
     ngOnInit(){
         this.quizId= this.route.snapshot.paramMap.get("quizId");
-        this.api.questionSelected.subscribe(question=>this.question=question);
+        // this.route.params.subscribe(params => {
+        //     let id = params['questionId'];          
+
+        // });
+
+        this.api.questionSelected.subscribe(question=>{
+            this.question=question;
+        });
     }
     postQuestion(question:any){
         question.Id=0;

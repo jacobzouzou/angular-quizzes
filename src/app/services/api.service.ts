@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import {Router} from '@angular/router'
 //library for observable pattern: subject , observer
 import { Subject } from 'rxjs';
 
@@ -13,7 +14,7 @@ export class ApiService {
   private selectedQuiz = new Subject<any>();
   quizSelected = this.selectedQuiz.asObservable();
 
-  constructor(private httpClient: HttpClient) {
+  constructor(private httpClient: HttpClient, private router:Router) {
     //constructor
   }
   /* QUESTIONS*/
@@ -34,6 +35,7 @@ export class ApiService {
   selectQuestion(question: any) {
     //Subject notify observer with pasted value
     this.selectedQuestion.next(question);
+    this.router.navigate(['quizzes',question.quizId, 'questions',question.id]);
   }
   /* QUIZZES*/
   getQuizzes() {
