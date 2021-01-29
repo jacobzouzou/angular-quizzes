@@ -13,23 +13,20 @@ export class ApiService {
   private selectedQuiz = new Subject<any>();
   quizSelected = this.selectedQuiz.asObservable();
 
-  constructor(private httpClient: HttpClient) { }
-  
+  constructor(private httpClient: HttpClient) {
+    //constructor
+  }
   /* QUESTIONS*/
   getQuestions(quizId: number) {
-    return this.httpClient.get(`http://localhost:5000/api/questions/${quizId}`);
+    return this.httpClient.get(`http://localhost:5000/api/quizzes/${quizId}`);
   }
   postQuestion(question: any) {
-    return this.httpClient.post(
-      'http://localhost:5000/api/questions',
-      question
-    );
+    return this.httpClient
+      .post('http://localhost:5000/api/questions', question);
   }
   putQuestion(question: any) {
-    return this.httpClient.put(
-      `http://localhost:5000/api/questions/${question.id}`,
-      question
-    );
+     return this.httpClient
+      .put(`http://localhost:5000/api/questions/${question.id}`, question);
   }
   selectQuestion(question: any) {
     //Subject notify observer with pasted value
