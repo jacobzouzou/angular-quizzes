@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../services/api.service';
 import {ActivatedRoute} from "@angular/router";
 
@@ -6,17 +6,21 @@ import {ActivatedRoute} from "@angular/router";
   selector: 'questions',
   templateUrl: './questions.component.html',
 })
-export class QuestionsComponent {
-  api: ApiService;
+export class QuestionsComponent implements OnInit {
   question = {};
   questions: any;
-  constructor(private apiService: ApiService, private route: ActivatedRoute) {
-    //constructor
-    this.api = apiService;
+  
+  constructor(private api: ApiService, private route: ActivatedRoute) { 
+
   }
+
   ngOnInit() {
     var quizId= this.route.snapshot.paramMap.get("quizId");
     var Id= Number.parseFloat( quizId ? quizId: "0");
     this.api.getQuestions(Id).subscribe((res) => (this.questions = res));
+  }
+  selectQuestion(question:any){
+      // this.router.navigate(['quizzes',question.quizId, 'questions',question.id]);
+      this.api.selectQuestion(question);
   }
 }

@@ -1,8 +1,8 @@
 import {Component} from "@angular/core";
 import {ApiService} from "../../services/api.service";
 import {ActivatedRoute, Router} from "@angular/router";
-import {Location} from "@angular/common"
-// import {Question} from "./data.service";
+import {Location} from "@angular/common";
+// import {Question} from "../services/data.service";
 
 @Component({
     selector:"question",
@@ -17,15 +17,16 @@ export class QuestionComponent{
     
     ngOnInit(){
         this.quizId= this.route.snapshot.paramMap.get("quizId");
+        
+        this.api.questionSelected.subscribe(question=>{
+            this.location.replaceState(`quizzes/${question.quizId}/questions/${question.id}`);
+            this.question=question;
+        });
         // this.route.params.subscribe(params => {
         //     let id = params['questionId'];          
 
         // });
 
-        this.api.questionSelected.subscribe(question=>{
-            this.location.replaceState(`quizzes/${question.quizId}/questions/${question.id}`);
-            this.question=question;
-        });
     }
     postQuestion(question:any){
         question.Id=0;
