@@ -21,7 +21,7 @@ export class AuthService {
     get isRegisterError(){
         return this.registerError;
     }
-    ngOnInti(){
+    ngOnInit(){
         this.loginError=false;
         this.registerError=false;
         this.authenticated=false;

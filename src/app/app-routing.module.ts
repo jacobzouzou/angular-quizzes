@@ -10,7 +10,7 @@ import { QuizComponent } from './Business/Quizzes/quiz.component';
 import { HomeComponent } from './Layout/home.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', component: HomeComponent }, //not need template url
   { path: 'question', component: QuestionComponent },
   { path: 'quizzes/:quizId/questions', component: QuestionComponent },
   { path: 'quizzes/:quizId/questions/:questionId', component: QuestionComponent },

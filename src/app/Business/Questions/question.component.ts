@@ -16,17 +16,16 @@ export class QuestionComponent{
     constructor (private api:ApiService, private location:Location, private route:ActivatedRoute){}
     
     ngOnInit(){
+        // this.route.params.subscribe(params => {
+        //     this.quizId = params['quizId'];       
+        // });
+
         this.quizId= this.route.snapshot.paramMap.get("quizId");
         
         this.api.questionSelected.subscribe(question=>{
             this.location.replaceState(`quizzes/${question.quizId}/questions/${question.id}`);
             this.question=question;
         });
-        // this.route.params.subscribe(params => {
-        //     let id = params['questionId'];          
-
-        // });
-
     }
     postQuestion(question:any){
         question.Id=0;
