@@ -1,11 +1,15 @@
 <mat-card class="example-card">
-    <mat-card-header>
-      <mat-card-title >Quizzes</mat-card-title>
+  <mat-card-header>
+    <mat-card-title>Quizzes</mat-card-title>
   </mat-card-header>
-    <mat-card-content>
-      <mat-list *ngFor="let quiz of quizzes" role="list">
-        <mat-list-item class="clickable" role="listitem" [routerLink]="['/playQuiz', quiz.id]">{{quiz.title}}</mat-list-item>
-      </mat-list>
-    </mat-card-content>
-  </mat-card>
-  
+  <mat-card-content>
+    <mat-list *ngFor="let quiz of quizzes" role="list">
+      <mat-list-item
+        class="clickable"
+        role="listitem"
+        [routerLink]="['/playQuiz', quiz.id]"
+        >{{ quiz.title }}</mat-list-item
+      >
+    </mat-list>
+  </mat-card-content>
+</mat-card>
