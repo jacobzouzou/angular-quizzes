@@ -16,13 +16,14 @@ export class ApiService {
   constructor(private httpClient: HttpClient, private router:Router) {
     //constructor
   }
+
   /* QUESTIONS*/
   getQuestions(quizId: number) {
     return this.httpClient.get(`http://localhost:5000/api/quizzes/${quizId}/questions`);
   }
-  getQuestion(quizId: number, questionId:number) {
-    return this.httpClient.get(`http://localhost:5000/api/quizzes/${quizId}/questions/${questionId}`);
-  }
+  // getQuestion(quizId: number, questionId:number) {
+  //   return this.httpClient.get(`http://localhost:5000/api/quizzes/${quizId}/questions/${questionId}`);
+  // }
   postQuestion(question: any) {
     return this.httpClient
       .post('http://localhost:5000/api/questions', question);
@@ -32,9 +33,10 @@ export class ApiService {
       .put(`http://localhost:5000/api/questions/${question.id}`, question);
   }
   selectQuestion(question: any) {
-    //Subject notify observer with pasted value
+    //Subject notify observer with posted value
     this.selectedQuestion.next(question);
   }
+
   /* QUIZZES*/
   getQuizzes() {
     return this.httpClient.get('http://localhost:5000/api/quizzes');
