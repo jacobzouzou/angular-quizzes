@@ -19,6 +19,8 @@ export class QuestionsComponent implements OnInit {
     var Id= Number.parseFloat( quizId ? quizId: "0");
     this.api.getQuestions(Id).subscribe((res) => (this.questions = res));
   }
+
+  //Modify subject data
   selectQuestion(question:any){
       // this.router.navigate(['quizzes',question.quizId, 'questions',question.id]);
       this.api.selectQuestion(question);

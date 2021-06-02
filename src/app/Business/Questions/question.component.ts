@@ -20,8 +20,11 @@ export class QuestionComponent{
         //     this.quizId = params['quizId'];       
         // });
 
+        //or
         this.quizId= this.route.snapshot.paramMap.get("quizId");
-        
+
+        //Subscribe to observable object 
+        //----------------------------------------------------------------------------------
         this.api.questionSelected.subscribe(question=>{
             this.location.replaceState(`quizzes/${question.quizId}/questions/${question.id}`);
             this.question=question;

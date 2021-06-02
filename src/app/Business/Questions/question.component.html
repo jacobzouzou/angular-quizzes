@@ -6,6 +6,7 @@
       <!-- <mat-card-subtitle>Dog Breed</mat-card-subtitle> -->
   </mat-card-header>
   <mat-card-content>
+   <!-- Form Template binding modele --> 
     <form class="example-form">
       <mat-form-field class="fullWidth">
         <!-- <mat-label>Your question</mat-label> -->
@@ -60,4 +61,5 @@
     <button mat-button (click)="postQuestion(question)" *ngIf="!question.id">ADD</button>
   </mat-card-actions>
 </mat-card>
+<!--Question list -->
 <questions></questions>
