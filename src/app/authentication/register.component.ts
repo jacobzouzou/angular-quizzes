@@ -16,8 +16,8 @@ export class RegisterComponent{
         });
     }
 
-    register(){
-        this.auth.register(this.form.value);
+    register(value:any){
+        this.auth.register(value);
     }
     cancel(){
         this.router.navigate(['']);
