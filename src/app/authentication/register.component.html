@@ -1,31 +1,23 @@
 <mat-card>
-  <mat-card-header>
-    <mat-card-title>Register</mat-card-title>
-  </mat-card-header>
-  <mat-card-content>
-    <h3 *ngIf="this.auth.isRegisterError" style="color:red">Verify if valid data or server is runing</h3>
-    <form [formGroup]="form" (ngSubmit)="register(form.value)">
-      <mat-form-field>
-        <input
-          formControlName="email"
-          type="email"
-          matInput
-          placeholder="Email"
-        />
-      </mat-form-field>
-      <br />
-      <mat-form-field>
-        <input
-          formControlName="password"
-          type="password"
-          matInput
-          placeholder="Password"
-        />
-      </mat-form-field>
-      <div>
-        <button mat-button [disabled]="!form.valid">Register</button>
-        <button mat-button type="button" (click)="cancel()">Cancel</button>
-      </div>
-    </form>
-  </mat-card-content>
+    <mat-card-header>
+        <mat-card-title>Register</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <h3 *ngIf="this.auth.isRegisterError" style="color:red">Verify if valid data or server is runing</h3>
+
+        <!--Model driven -->
+        <form [formGroup]="form" (ngSubmit)="register(form.value)">
+            <mat-form-field>
+                <input formControlName="email" type="email" matInput placeholder="Email" />
+            </mat-form-field>
+            <br />
+            <mat-form-field>
+                <input formControlName="password" type="password" matInput placeholder="Password" />
+            </mat-form-field>
+            <div>
+                <button mat-button [disabled]="!form.valid">Register</button>
+                <button mat-button type="button" (click)="cancel()">Cancel</button>
+            </div>
+        </form>
+    </mat-card-content>
 </mat-card>

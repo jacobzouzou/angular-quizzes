@@ -19,7 +19,7 @@ import { LoginComponent } from './authentication/login.component';
 import { NavComponent } from './Layout/nav.component';
 import { FinishedComponent } from './Business/finished.component';
 
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'; //for form template driven
 
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatMenuModule} from '@angular/material/menu';
@@ -67,8 +67,7 @@ import { AuthInterceptor } from './authentication/auth.interceptor';
     MatToolbarModule
   ],
   providers: [{
-    provide:HTTP_INTERCEPTORS,
-    useClass:AuthInterceptor,
+    provide:HTTP_INTERCEPTORS, useClass:AuthInterceptor,
     multi:true
   }],
   bootstrap: [AppComponent],
