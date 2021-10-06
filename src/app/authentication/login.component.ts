@@ -1,4 +1,4 @@
-import {Component} from "@angular/core";
+import {Component,Inject} from "@angular/core";
 import {AuthService} from "../services/auth.service";
 
 @Component({
@@ -7,9 +7,9 @@ import {AuthService} from "../services/auth.service";
 export class LoginComponent{
     password="!Nanok$1";
     
-    constructor (public auth:AuthService){
-
-     }
+    constructor (public auth:AuthService,@Inject('lookupListToken') lookupList:[]){
+        console.log(lookupList);
+    }
 
     login(form:any){
         this.auth.login(form.value);
