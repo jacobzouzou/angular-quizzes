@@ -33,6 +33,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './authentication/auth.interceptor';
+import { newLookupList, newLookupListToken } from 'src/providers';
 
 const lookupList = ["moovies","series"];
 
@@ -70,7 +71,8 @@ const lookupList = ["moovies","series"];
   ],
   providers: [
     { provide:HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi:true  },
-    { provide:'lookupListToken', useValue: lookupList }
+    { provide:'lookupListToken', useValue: lookupList },
+    { provide: newLookupListToken, useValue: lookupList }
   ],
   bootstrap: [AppComponent],
   entryComponents:[FinishedComponent]
