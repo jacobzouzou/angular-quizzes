@@ -16,10 +16,10 @@ export class AuthService {
     get isAuthenticated(){
         return this.authenticated;
     }
-    get isLoginError(){
+    get hasLoginError(){
         return this.loginError;
     }
-    get isRegisterError(){
+    get hasRegisterError(){
         return this.registerError;
     }
     //
