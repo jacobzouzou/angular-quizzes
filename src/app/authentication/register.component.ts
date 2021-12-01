@@ -9,6 +9,7 @@ import {AuthService} from "../services/auth.service";
 })
 export class RegisterComponent{
     form;
+
     constructor (public auth:AuthService, private formBuilder:FormBuilder, private router:Router){
         this.form=formBuilder.group({
             email:['jacob@isi.com',Validators.required],
@@ -16,8 +17,8 @@ export class RegisterComponent{
         });
     }
 
-    register(value:any){
-        this.auth.register(value);
+    register(form:any){
+        this.auth.register(form.value);
     }
     cancel(){
         this.router.navigate(['']);

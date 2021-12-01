@@ -6,6 +6,7 @@ import { Subject } from 'rxjs';//library for observable pattern: subject , obser
 @Injectable({
   providedIn: 'root',
 })
+
 export class ApiService {
   private selectedQuestion = new Subject<any>();
   questionSelected = this.selectedQuestion.asObservable();
@@ -54,7 +55,7 @@ export class ApiService {
     );
   }
   selectQuiz(quiz: any) {
-    //Subject notify observer with pasted value
+    //Subject notify observer with pasted value with next() method
     this.selectedQuiz.next(quiz);
   }
 }

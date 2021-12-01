@@ -11,7 +11,7 @@ export class LoginComponent{
     constructor (
         public auth:AuthService,
         @Inject('lookupListToken') lookupList:[], 
-        @Inject(newLookupListToken) newLookupList:any){
+        @Inject(newLookupListToken) newLookupList:any) {
             console.log(lookupList,newLookupList.medium);
     }
 

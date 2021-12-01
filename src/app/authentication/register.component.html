@@ -5,8 +5,8 @@
     <mat-card-content>
         <h3 *ngIf="this.auth.isRegisterError" style="color:red">Verify if valid data or server is runing</h3>
 
-        <!--Model driven -->
-        <form [formGroup]="form" (ngSubmit)="register(form.value)">
+        <!--Model driven: use "formControlName" -->
+        <form [formGroup]="form" (ngSubmit)="register(form)">
             <mat-form-field>
                 <input formControlName="email" type="email" matInput placeholder="Email" />
             </mat-form-field>

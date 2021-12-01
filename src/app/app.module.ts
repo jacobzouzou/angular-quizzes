@@ -33,7 +33,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './authentication/auth.interceptor';
-import { newLookupList, newLookupListToken } from 'src/providers';
+import {newLookupListToken } from 'src/providers';
 
 const lookupList = ["moovies","series"];
 

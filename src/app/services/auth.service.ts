@@ -10,8 +10,9 @@ export class AuthService {
     private loginError:boolean=false;
     private registerError:boolean=false;
 
-    constructor(private http:HttpClient, private router:Router){  }
+    constructor(private httpClient:HttpClient, private router:Router){  }
 
+    //getters
     get isAuthenticated(){
         return this.authenticated;
     }
@@ -21,13 +22,14 @@ export class AuthService {
     get isRegisterError(){
         return this.registerError;
     }
+    //
     ngOnInit(){
         this.loginError=false;
         this.registerError=false;
         this.authenticated=false;
     }
     register(credentials: any){
-        this.http.post<any>("http://localhost:5000/api/account", credentials).subscribe(
+        this.httpClient.post<any>("http://localhost:5000/api/account/register", credentials).subscribe(
             res =>{
                 localStorage.setItem("token",res);
                 this.router.navigate(['/login']);
@@ -40,7 +42,7 @@ export class AuthService {
         );
     }
     login(credentials: any){
-        this.http.post<any>("http://localhost:5000/api/account/login", credentials).subscribe(
+        this.httpClient.post<any>("http://localhost:5000/api/account/login", credentials).subscribe(
             res =>{
                 localStorage.setItem("token",res);
                 this.authenticated=true;
