@@ -1,5 +1,5 @@
 import {Component,Inject} from "@angular/core";
-import { newLookupListToken } from "src/providers";
+import { NewLookupListToken } from "src/providers";
 import {AuthService} from "../services/auth.service";
 
 @Component({
@@ -11,8 +11,8 @@ export class LoginComponent{
     constructor (
         public auth:AuthService,
         @Inject('lookupListToken') lookupList:[], 
-        @Inject(newLookupListToken) newLookupList:any) {
-            console.log(lookupList,newLookupList.medium);
+        @Inject(NewLookupListToken) lookupListBis:any) {
+            console.log(lookupList,lookupListBis.medium);
     }
 
     login(form:any){

@@ -1,7 +1,7 @@
 import { InjectionToken } from "@angular/core";
 
-export const newLookupListToken= new InjectionToken('newLookupListToken');
+export const NewLookupListToken= new InjectionToken('newLookupListToken');
 
-export const newLookupList = {
+export const lookupList = {
     medium:["moovies","series"]
 };
