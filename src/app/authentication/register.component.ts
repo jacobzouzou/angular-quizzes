@@ -1,26 +1,32 @@
-import {Component} from "@angular/core";
-import {FormBuilder,Validators} from "@angular/forms";
-import {Router} from "@angular/router"
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
-import {AuthService} from "../services/auth.service";
+import { AuthService } from '../services/auth.service';
 
 @Component({
-    templateUrl:"./register.component.html",
+  templateUrl: './register.component.html',
 })
-export class RegisterComponent{
-    form;
+export class RegisterComponent {
+  registerForm:FormGroup;
 
-    constructor (public auth:AuthService, private formBuilder:FormBuilder, private router:Router){
-        this.form=formBuilder.group({
-            email:['jacob@isi.com',Validators.required],
-            password:['!Nanok$1',Validators.required]
-        });
-    }
+  constructor(
+    public auth: AuthService,
+    private formBuilder: FormBuilder,
+    private router: Router
+  ) {
+    //form data building
+    this.registerForm = formBuilder.group({
+      email: ['jacob@isi.com', Validators.required],
+      password: ['!Nanok$1', Validators.required],
+    });
+  }
 
-    register(form:any){
-        this.auth.register(form.value);
-    }
-    cancel(){
-        this.router.navigate(['']);
-    }
+  //submit managemnent method
+  register(form: any) {
+    this.auth.register(form.value);
+  }
+  cancel() {
+    this.router.navigate(['']);
+  }
 }

@@ -4,7 +4,7 @@ import { AuthService } from '../services/auth.service';
 @Component({
   selector: 'nav',
   template: `
-    <button mat-button routerLink="/">My Quiz</button>
+    <button mat-button routerLink="/">Quiz</button>
     <button mat-button routerLink="/play">Play</button>
     <span style="flex: 1 1 auto"></span>
     <button *ngIf="!isAuthenticated" mat-button routerLink="/register">
@@ -19,7 +19,7 @@ import { AuthService } from '../services/auth.service';
   `,
   // template: `
   //   <mat-toolbar>
-  //     <button routerLink="/">My Quiz</button>
+  //     <button routerLink="/">Quiz</button>
   //     <button routerLink="/play">Play</button>
   //     <span style="flex: 1 1 auto"></span>
   //     <button *ngIf="!isAuthenticated" routerLink="/register">Register</button>

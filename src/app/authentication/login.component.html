@@ -6,9 +6,9 @@
         <h3 *ngIf="this.auth.hasLoginError" style="color: red">
             Error in login or password
         </h3>
-        <!--#ref : allow to use ref in template itself -->
+        <!--#ref : allow to use form ref in template itself -->
         <!-- Template driven: use ngModel form formControl -->
-        <form #form="ngForm" (ngSubmit)="login(form)">
+        <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
             <mat-form-field>
                 <input ngModel type="email" name="email" matInput placeholder="Email" required />
             </mat-form-field>
@@ -17,7 +17,7 @@
                 <input name="password" [(ngModel)]="password" type="password" matInput placeholder="Password" required />
             </mat-form-field>
             <div>
-                <button mat-button [disabled]="!form.valid">Login</button>
+                <button mat-button [disabled]="!loginForm.valid">Login</button>
             </div>
         </form>
     </mat-card-content>
