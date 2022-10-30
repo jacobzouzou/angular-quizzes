@@ -34,7 +34,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './authentication/auth.interceptor';
 
-import {providerMooviesToken, providerMoovies } from 'src/providers';
+import {providerMooviesToken, providerMoovies } from 'src/app/providers';
 const moovies = ["moovies","series"];
 
 @NgModule({

@@ -1,5 +1,5 @@
 import { Component, Inject } from '@angular/core';
-import { providerMooviesToken } from 'src/providers';
+import { providerMooviesToken } from 'src/app/providers';
 import { AuthService } from '../services/auth.service';
 
 @Component({
