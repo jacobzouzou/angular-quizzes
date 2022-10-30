@@ -3,65 +3,67 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
 @Injectable({
-    providedIn:"root"
+    providedIn: "root"
 })
 export class AuthService {
-    private authenticated:boolean=false;
-    private registered: boolean=false;
-    private loginError:boolean=false;
-    private registerError:boolean=false;
+    private authenticated: boolean = false;
+    private registered: boolean = false;
+    private loginError: boolean = false;
+    private registerError: boolean = false;
 
-    constructor(private httpClient:HttpClient, private router:Router){  }
+    constructor(private httpClient: HttpClient, private router: Router) { }
 
     //getters
-    get isRegistered(){
+    get isRegistered() {
         return this.registered;
     }
-    get isAuthenticated(){
+    get isAuthenticated() {
         return this.authenticated;
     }
-    get hasLoginError(){
+    get hasLoginError() {
         return this.loginError;
     }
-    get hasRegisterError(){
+    get hasRegisterError() {
         return this.registerError;
     }
     //
-    ngOnInit(){
+    ngOnInit() {
         // this.loginError=false;
         // this.registerError=false;
         // this.authenticated=false;
     }
-    register(credentials: any){
+    register(credentials: any) {
         this.httpClient.post<any>("http://localhost:5000/api/account/register", credentials).subscribe(
-            res =>{
-                localStorage.setItem("token",res);
-                this.registered=true;
+            res => {
+                if (res != null) {
+                    localStorage.setItem("token", res);
+                }
+                this.registered = true;
                 this.router.navigate(['/login']);
             },
-            error=>{
+            error => {
                 console.error(error);
-                this.registerError=true;
+                this.registerError = true;
                 this.router.navigate(['/register']);
-            }       
+            }
         );
     }
-    login(credentials: any){
+    login(credentials: any) {
         this.httpClient.post<any>("http://localhost:5000/api/account/login", credentials).subscribe(
-            res =>{
-                localStorage.setItem("token",res);
-                this.authenticated=true;
+            res => {
+                localStorage.setItem("token", res);
+                this.authenticated = true;
                 this.router.navigate(['']);
             },
-            error=>{
+            error => {
                 console.error(error);
-                this.loginError=true;
+                this.loginError = true;
                 this.router.navigate(['/login']);
-            }       
+            }
         );
     }
-    logout(){
+    logout() {
         localStorage.removeItem("token");
-        this.authenticated=false;
+        this.authenticated = false;        
     }
 }

@@ -1,5 +1,5 @@
 import { Component, Inject } from '@angular/core';
-import { providerMooviesToken } from 'src/app/providers';
+import { MooviesToken } from 'src/app/providers';
 import { AuthService } from '../services/auth.service';
 
 @Component({
@@ -10,14 +10,14 @@ export class LoginComponent {
 
   constructor(
     public auth: AuthService,
-    @Inject('mooviesToken')  public moovyList: [],
-    @Inject(providerMooviesToken)  public providerMoovyList: any
+    @Inject('mooviesToken')  public movies: [],
+    @Inject(MooviesToken)  public Movies: any
   ) {
   }
 
   //submit management method
   login(form: any) {
-    console.log(this.moovyList, this.providerMoovyList.medium);
+    console.log(this.movies, this.Movies.medium);
     this.auth.login(form.value);
   }
 }

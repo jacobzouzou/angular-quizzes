@@ -1,7 +1,7 @@
 import { InjectionToken } from "@angular/core";
 
-export const providerMooviesToken= new InjectionToken('providerMooviesToken');
+export const MooviesToken= new InjectionToken('providerMooviesToken');
 
-export const providerMoovies = {
-    medium:["provider moovies","provider series"]
+export const Moovies = {
+    medium:["moovies","series"]
 };

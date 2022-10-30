@@ -34,7 +34,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './authentication/auth.interceptor';
 
-import {providerMooviesToken, providerMoovies } from 'src/app/providers';
+import {MooviesToken, Moovies } from 'src/app/providers';
 const moovies = ["moovies","series"];
 
 @NgModule({
@@ -71,8 +71,8 @@ const moovies = ["moovies","series"];
   ],
   providers: [
     { provide:HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi:true  },
-    { provide:'mooviesToken', useValue: moovies }, //hard token declaration
-    { provide: providerMooviesToken, useValue: providerMoovies } //provides file declaration
+    { provide:'mooviesToken', useValue: moovies }, //"local" token declaration
+    { provide: MooviesToken, useValue: Moovies } //file token declaration
   ],
   bootstrap: [AppComponent],
   entryComponents:[FinishedComponent]
