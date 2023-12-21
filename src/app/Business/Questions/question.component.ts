@@ -25,7 +25,7 @@ export class QuestionComponent{
 
         //Subscribe to observable object 
         //----------------------------------------------------------------------------------
-        this.api.questionSelected.subscribe(question=>{
+        this.api.selectedQuestion.asObservable().subscribe(question=>{
             this.location.replaceState(`quizzes/${question.quizId}/questions/${question.id}`);
             this.question=question;
         });

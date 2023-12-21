@@ -8,12 +8,8 @@ import { Subject } from 'rxjs';//library for observable pattern: subject , obser
 })
 
 export class ApiService {
-  private selectedQuestion = new Subject<any>();
-  questionSelected = this.selectedQuestion.asObservable();
-
-  private selectedQuiz = new Subject<any>();
-  quizSelected = this.selectedQuiz.asObservable();
-
+  public selectedQuestion = new Subject<any>();
+  public selectedQuiz = new Subject<any>();
   constructor(private httpClient: HttpClient, private router:Router) {
     //constructor
   }

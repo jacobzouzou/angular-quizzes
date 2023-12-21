@@ -7,17 +7,21 @@ import { ApiService } from '../../services/quiz.service';
 })
 export class QuizComponent {
   quiz: any = {};
-  constructor(private api: ApiService) {}
+
+  constructor(private api: ApiService) { }
+
   ngOnInit() {
-    this.api.quizSelected.subscribe((quiz) => (this.quiz = quiz));
+    this.api.selectedQuiz.asObservable().subscribe((quiz) => (this.quiz = quiz));
   }
+
   postQuiz(quiz: any) {
-    this.api.postQuiz(quiz).subscribe((res) => {
+    this.api.postQuiz(quiz).subscribe(() => {
       window.location.reload();
     });
   }
+  
   putQuiz(quiz: any) {
-    this.api.putQuiz(quiz).subscribe((res) => {
+    this.api.putQuiz(quiz).subscribe(() => {
       window.location.reload();
     });
   }
