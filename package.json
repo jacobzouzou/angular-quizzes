@@ -3,10 +3,10 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "test": "ng test",
-    "lint": "ng lint",
+    "start": "set NODE_OPTIONS=--openssl-legacy-provider && ng serve",
+    "build": "set NODE_OPTIONS=--openssl-legacy-provider && ng build",
+    "test": "set NODE_OPTIONS=--openssl-legacy-provider && ng test",
+    "lint": "set NODE_OPTIONS=--openssl-legacy-provider && ng lint",
     "e2e": "ng e2e"
   },
   "private": true,
